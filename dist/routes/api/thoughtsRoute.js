@@ -4,15 +4,13 @@ import { getAllThoughts, getThoughtsById, createThought, updateThought, deleteTh
 // /api/Thouthgs
 router.route('/')
     .get(getAllThoughts)
-    .post(createThought)
-    .delete(deleteThought);
+    .post(createThought);
 // /api/thoughts/:thoughtsId
 router
     .route('/:thoughtsId')
     .get(getThoughtsById)
     .delete(deleteThought)
     .put(updateThought);
-// reactions
 //api/thoughts/:thoughtId/reactions
 router
     .route('/:thoughtId/reactions')

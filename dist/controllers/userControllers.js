@@ -90,6 +90,8 @@ export const removeFriend = async (req, res) => {
 export const updateUser = async (req, res) => {
     try {
         const user = await Users.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, { runValidators: true, new: true });
+        console.log("Data from update user", req.params.userId);
+        console.log('User body ID: ', req.body.userId);
         if (!user) {
             res.status(404).json({ message: 'No user with this id!' });
         }

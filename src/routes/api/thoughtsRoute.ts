@@ -14,7 +14,7 @@ import {
 router.route('/')
 .get(getAllThoughts)
 .post(createThought)
-.delete(deleteThought);
+
 
 // /api/thoughts/:thoughtsId
 router
@@ -23,8 +23,7 @@ router
   .delete(deleteThought)
   .put(updateThought);
 
- 
-  // reactions
+
   //api/thoughts/:thoughtId/reactions
 router
  .route('/:thoughtId/reactions')

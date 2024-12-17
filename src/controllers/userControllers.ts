@@ -14,8 +14,6 @@ export const getAllUser = async (_: Request, res: Response) => {
     }
 }
 
-
-
 export const getUserById = async (req: Request, res: Response) => {
 console.log("User ID: ", req.params.UserId);
 const { UserId } = req.params;
@@ -38,7 +36,6 @@ try {
 }
 };
 
-
 export const createUser= async (req: Request, res: Response) => {
     try {
         const user = await Users.create(req.body);
@@ -47,7 +44,6 @@ export const createUser= async (req: Request, res: Response) => {
         res.status(500).json(err);
     }
 }
-
 
 export const deleteUser = async (req: Request, res: Response) => {
     const { UserId } = req.params;
@@ -119,7 +115,8 @@ export const updateUser = async (req: Request, res: Response) => {
         { $set: req.body },
         { runValidators: true, new: true }
       );
-
+ console.log("Data from update user", req.params.userId);
+ console.log ('User body ID: ', req.body.userId);
       if (!user) {
         res.status(404).json({ message: 'No user with this id!' });
       }
